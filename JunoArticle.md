@@ -2,13 +2,6 @@
 
 ![blogwebsite](https://a2ede-rqaaa-aaaal-ai6sq-cai.raw.icp0.io/uploads/myblogwebsite.1350.648.PNG)
 
----
-slug: How to Build a Secure and Decentralized Blog Website on the Blockchain
-title: How to Build a Secure and Decentralized Blog Website on the Blockchain
-image:https://a2ede-rqaaa-aaaal-ai6sq-cai.raw.icp0.io/uploads/myblogwebsite.1350.648.PNG
-authors: [samthetutor]
-tags: [programming, development, internetcomputer]
----
 
 ## Introduction
 
