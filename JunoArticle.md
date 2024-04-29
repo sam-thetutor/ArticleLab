@@ -12,7 +12,7 @@ This article will provide a comprehensive guide on constructing your inaugural b
 - Prior knowldge of working with HTML,CSS and JavaScript
 - Prior knowledge of working with terminal or command line
 - Prior knowledge of Github
-- Prior kknowledge about blockchain
+- Prior kknowledge about Blockchain
 
 ## What is ICP
 
@@ -21,7 +21,9 @@ Unlike traditional blockchains, the Internet Computer uses a unique consensus me
 
 ## What is Juno
 
-Juno is a blockchainless platform designed for developers aiming to craft groundbreaking applications on the Web3 space. Juno abstract away all the complexities that any developer passes through to build their app on the blockchain.
+Juno is an open-source Blockchain-as-a-Service platform. It works just like traditional serverless platforms such as Google Firebase or AWS Amplify, but with one key difference: everything on Juno runs on the blockchain. This means that you get a fully decentralized and secure infrastructure for your applications, which is pretty cool if you ask me.
+
+Behind the scenes, Juno uses the Internet Computer blockchain network and infrastructure to launch what we call a “Satellite” for each app you build. A Satellite is essentially a smart contract on steroids that contains your entire app. From its assets provided on the web (such as JavaScript, HTML, and image files) to its state saved in a super simple database, file storage, and authentication, each Satellite controlled solely by you contains everything it needs to run smoothly.
 [Learn more about Juno](https://juno.build/)
 
 ## What are Github Actions
@@ -33,12 +35,12 @@ GitHub Actions is a powerful continuous integration and continuous deployment (C
 This is a simple blog website deployed on the internet computer blockchain using juno. It is integrated with Github Actions so that every time make changes to our project, they will automatically reflect on the live website
 
 ## Setting up the Project
+
+In this section,we will cover how to setup a boilerplate project using juno's cli tool.
+
 ![](https://a2ede-rqaaa-aaaal-ai6sq-cai.raw.icp0.io/uploads/firstss.600.338.gif)
 
-In this section,we will cover how to setup a bolerplate project using juno's cli tool
-Open up your terminal and follow the steps below to create your boilerplate project
-
-Run the command below
+Run the command below in your project terminal
 
 ```bash
 npm create juno@latest
@@ -48,11 +50,11 @@ npm create juno@latest
 
 - Select the static/blog project
 
-- Select yes to configure Github Actions. We will use this feature later on
+- Select `yes` to configure Github Actions. We will use this feature later on
 
-- Select no to configure the local emurator. This is because we are not going to use it in this project
+- Select `no` to configure the local emurator. This is because we are not going to use it in this project
 
-- Select yes to install the necessary npm dependencies.
+- Select `yes` to install the necessary npm dependencies.
 
 ## Creating a Juno Statellite
 
@@ -64,14 +66,14 @@ To create a satellite, navigate to the [juno console](https://console.juno.build
 - Login with your internet Identity
 - On the dashboard, select Launch new satellite
 - Provide name `myBlogSatellite` for the satellite.
-- Click create
+- Click `Create Satellite`
 
 Once the satelitte is created, it is time to connect it to our project.
 
 ## Connecting the Project to the Satellite
 ![](https://a2ede-rqaaa-aaaal-ai6sq-cai.raw.icp0.io/uploads/junobuildcli.600.338.gif)
 
-We will use the `junobuild/cli` package to login to the juno console account using the terminal and link the satellite to the project
+We will use the `junobuild/cli` SDK package to login to the juno console account using the terminal and link the satellite to our project
 
 ```bash
 npm i -g @junobuild/cli
@@ -83,13 +85,13 @@ Run the command above to download the package on your pc.
 juno login
 ```
 
-- In the project terminal, run the above command.This will prompt you to authorize the terminal to access your satellite from your juno console in your browser.
+- This will prompt you to authorize the terminal to access your satellite from your juno console in your browser.
 
 ```bash
 juno init
 ```
 
-Run the above command in your project terminal.Select the `myBlogSatellite` as the satellite to connect to the project, specify `dist` as the folder that will hold our compiled files and finally select the language for the files.
+Running the above command will prompt you to select the `myBlogSatellite` as the satellite to connect to the project, specify `dist` as the folder that will hold our compiled files and finally select the language for the files.
 
 ## Project code
 
@@ -98,7 +100,7 @@ Open the project in your favorite code editor
 
 ### index.astro
 
-Replace the code in the `index.astro` file with the code below
+Replace the code in the `index.astro` file inside the `pages` folder with the code below
 
 ```js
 ---
@@ -146,12 +148,13 @@ import Background from "../components/Background.astro";
 </html>
 ```
 
+In the above code, we display a navbar that has three tabs. We also display the data about the different blogs from our sample data store.
+
 ### Article.astro file
 
 Replace the code in the `Article.astro` file with the code below
 
 ```js
-
 ---
 interface Props {
   title: string;
@@ -173,9 +176,9 @@ const { title, image, description, url } = Astro.props;
     <a href={url} target="_blank" class="text-blue-500 hover:text-blue-700">Read more</a>
   </div>
 </div>
-
-
 ```
+
+The code above displays information about a sigle blog like the title, decription and link to the main article
 
 ### blogPosts.json file
 
@@ -207,6 +210,7 @@ create a new file `blogPosts.json` file in the components folder and paste the c
       }
   ]
 ```
+This file holds our sample data for the blogs. Each blog has a title,description,image and a url to the original blog/article.
 
 ## Project Deployment
 ![](https://a2ede-rqaaa-aaaal-ai6sq-cai.raw.icp0.io/uploads/junodeploy.600.338.gif)
@@ -233,7 +237,7 @@ Every time we make changes to our project and push the code to our remote github
 ### Generating secret token from the juno console
 ![](https://a2ede-rqaaa-aaaal-ai6sq-cai.raw.icp0.io/uploads/createsecret.600.338.gif)
 
-To set up Github Actions, we need a secret token that uniquely identifies our satellite. Follow the steps below to get the secret token
+To set up Github Actions, we need a secret token that uniquely identifies our satellite.
 
 - Visit [juno console](https://console.juno.build/), and select `myBlogSatellite` satellite.
 - Under the controllers tab, click add controller
@@ -263,11 +267,13 @@ git init
 git remote add origin https://github.com/sam-thetutor/myfirstBlog.git
 git add .
 git commit -m "my first commit"
-git push --set-upstream origin main
+git push -u origin main
 ```
 
 This will connect your local project to the github repo we created, and everytime we push changes to this github repo, they will automatically be deployed to our satellite using the juno unique feature.
 
+Now you have successfully deployed your first blog website on the blockchain, and every time you add a new article on your blog, Github Actions will automatically deploy the changes to your live website.
+
 ## Conclusion
 
-In this article, we have looked at how to deploy your first blog website on the blockchain,how to create a juno satellite,how to link your satellite to your project and how to integrate Github Actions for continuous integration and continuous deployment (CI/CD).
+In this article, we have looked at how to deploy your first blog website on the blockchain, how to create a juno satellite,how to link your satellite to your project and how to integrate Github Actions for continuous integration and continuous deployment (CI/CD).
