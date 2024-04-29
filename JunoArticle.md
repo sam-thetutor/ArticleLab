@@ -2,6 +2,14 @@
 
 ![blogwebsite](https://a2ede-rqaaa-aaaal-ai6sq-cai.raw.icp0.io/uploads/myblogwebsite.1350.648.PNG)
 
+---
+slug: How to Build a Secure and Decentralized Blog Website on the Blockchain
+title: How to Build a Secure and Decentralized Blog Website on the Blockchain
+image:https://a2ede-rqaaa-aaaal-ai6sq-cai.raw.icp0.io/uploads/myblogwebsite.1350.648.PNG
+authors: [samthetutor]
+tags: [programming, development, internetcomputer]
+---
+
 ## Introduction
 
 In the digital realm's evolution, decentralized applications (dApps) and blockchain technology have emerged as transformative tools for content creators and developers. Beyond cryptocurrencies, blockchain offers enhanced security, transparency, and user control, making it an appealing option for building online platforms. Building a blog website on the blockchain presents content creators with the opportunity to establish a censorship-resistant space where they retain full ownership of their content and data.
