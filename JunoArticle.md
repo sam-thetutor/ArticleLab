@@ -27,7 +27,9 @@ Unlike traditional blockchains, the Internet Computer uses a unique consensus me
 
 ## About the Project
 
-This is a secure and decentralized blog website hosted on the blockchain using Juno. The frontend is build with Astro, which is a modern, flexible web framework focused on building fast, content-rich websites with minimal JavaScript.
+This is a secure and decentralized blog website hosted on the blockchain using Juno. The frontend is build with Astro, which is a modern, flexible web framework focused on building fast, content-rich websites with minimal JavaScript. Here is what you will build by the end of thi article
+
+![live project](https://a2ede-rqaaa-aaaal-ai6sq-cai.raw.icp0.io/uploads/ddd.1362.695.PNG)
 
 ## Setting up the project
 
