@@ -40,6 +40,7 @@ npm create juno@latest --template astro-starter
 ```
 
 In the prompts, select `Static website or blog` as the kind of project, `Astro` as the framwork, `yes` to configure Github Actions, `no` to configure the local development emurator, `yes` to install the dependencies, and `yes` to install juno's CLI tool. Juno CLI will help us to deploy our project in the satellite.
+
 Navigate to the project folder `astro-starter` and open it in your favorite code editor.
 If every previous step is successfull, running `npm run start` will open the project in your browser and you should have something similar to this.
 
@@ -105,6 +106,8 @@ import Background from "../components/Background.astro";
 </html>
 ```
 
+The above code displays a navbar that has three tabs `Home`,`Articles`, and `About`. It also displays information about the different articles from our sample article data.
+
 ### `Article.astro` file
 
 Replace the code in the `Article.astro` file with the code below
@@ -132,6 +135,8 @@ const { title, image, description, url } = Astro.props;
   </div>
 </div>
 ```
+
+We will diplsay the title, image, desciption of every article from our sample data, as well as a link to the full article.
 
 ### `blogPosts.json` file
 
@@ -165,6 +170,8 @@ In the components folder, create a new file and name it `blogPosts.json`. Paste 
   ]
 ```
 
+This file holds our sample article data that we are using for this project.
+
 If all the above steps are successfull, your project should look like this in the browser
 
 ![local project](https://a2ede-rqaaa-aaaal-ai6sq-cai.raw.icp0.io/uploads/local.1351.693.PNG)
@@ -185,7 +192,7 @@ We need to create a satellite that will host our project. Follow the steps below
 - Provide name `myBlogSatellite` for the satellite.
 - Click `Create Satellite`
 
-`Note: The cost of creating and running a satellite is catered for by the developer. Users wont have to pay aynthing to access your blog webiste`
+`To keep the satellite operational, the developer pays a small fee that is used to purchase the necessary cycles for the satellite's storage and computation requirements.` [Learn more about pricing](https://juno.build/docs/pricing)
 
 ## Connect Project to the Satellite
 
@@ -215,7 +222,6 @@ juno deploy
 This will deploy our compiled files to the satellite that we connected linked our project to.
 
 At this stage, if all the previous steps are successful, `juno deploy` command will output a link whixh is in this format `https://<SATELLITE_ID>.icp0.io` where `SATELLITE_ID` is the id of the satellite that we connected our project to.
-![live link](https://a2ede-rqaaa-aaaal-ai6sq-cai.raw.icp0.io/uploads/fff.450.19.PNG)
 
 Opening the link in the browser, you should have something like this below
 ![live project](https://a2ede-rqaaa-aaaal-ai6sq-cai.raw.icp0.io/uploads/ddd.1362.695.PNG)
@@ -245,7 +251,7 @@ Once the new controller is generated, it will provide a secret token, copy and s
 
 ![github repo](https://a2ede-rqaaa-aaaal-ai6sq-cai.raw.icp0.io/uploads/addsecret.600.338.gif)
 
-On your Github account, create a new repo and name it `myfirstBlog` and click create.
+On your Github account, create a new repo and name it `myfirstBlog`.
 
 - On the settings tab, navigate to  `Secrets and variables` and click `Actions`.
 - Click on the `new repository secret`, add `JUNO_TOKEN` as the name, paste the secret token you copied from the juno console in the `Secret` section.
@@ -267,7 +273,11 @@ git push -u origin main
 
 The above code established the required connection to our remote Github repo, and pushes all our project code to that repo.Now every time we make changes to our project, all we have to do is push these changes to our github repo and they will be deployed to our satellite automatically. [Learn more about setting up Github Actions with Juno](https://juno.build/docs/guides/github-actions)
 
+## Next Steps
+
+Now that we have successfully hosted our blog website on the blockchain, you can go ahead and add more articles to the blog to showcase your skills. You can also add more features on the website to make it more robust.
+
 ## Conclusion
 
-In this article, we have looked at how to create a boilerplate template project using juno, how to create a satellite from the juno console, how to connect the satellite to the our local project, deploying our project to the satellite and configuring Github Actions to automate compiling and deployment tasks for our project
+In this article, we have looked at how to create a boilerplate template project using juno, how to create a satellite from the juno console, writing code for our project, how to connect the satellite to the our local project, deploying our project to the satellite and configuring Github Actions to automate compiling and deployment tasks for our project
 
